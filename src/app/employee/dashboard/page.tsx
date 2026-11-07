@@ -917,7 +917,7 @@ export default function EmployeeDashboardPage() {
                   </p>
 
                   <p className="mt-1 font-semibold text-slate-900">
-                    {selectedTask.due_date || "-"}
+                    {formatDate(selectedTask.due_date)}
                   </p>
 
                 </div>
@@ -929,7 +929,7 @@ export default function EmployeeDashboardPage() {
                   </p>
 
                   <p className="mt-1 font-semibold text-slate-900">
-                    {selectedTask.start_date || "-"}
+                    {formatDate(selectedTask.start_date)}
                   </p>
 
                 </div>
