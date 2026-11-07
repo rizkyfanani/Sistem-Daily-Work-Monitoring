@@ -382,6 +382,25 @@ export default function EmployeeDashboardPage() {
   // PRIORITY BADGE
   // =========================================================
 
+  function formatDate(dateString: string) {
+  if (!dateString) {
+    return "-";
+  }
+
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return String(dateString).substring(0, 10);
+  }
+
+  return new Intl.DateTimeFormat("id-ID", {
+    timeZone: "Asia/Jakarta",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}
+
   function getPriorityClass(priority: string) {
     switch (priority) {
       case "urgent":
@@ -779,7 +798,7 @@ export default function EmployeeDashboardPage() {
                         {/* DEADLINE */}
 
                         <td className="px-4 py-4 text-slate-700">
-                          {task.due_date || "-"}
+                          {formatDate(task.due_date)}
                         </td>
 
                       </tr>
